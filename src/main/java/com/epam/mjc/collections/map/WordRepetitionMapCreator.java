@@ -2,25 +2,26 @@ package com.epam.mjc.collections.map;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class WordRepetitionMapCreator {
     public Map<String, Integer> createWordRepetitionMap(String sentence) {
 
-        String[] w = sentence.split("\\W+");
+        Map<String, Integer> wordRepetitionMap = new HashMap<>();
 
-        Map<String, Integer> reps = new HashMap<>();
-        if (!sentence.isEmpty()) {
+        // Create a StringTokenizer with whitespace as the delimiter
+        StringTokenizer tokenizer = new StringTokenizer(sentence, " ");
 
-        for (String word : w) {
-            String lowercaseWord = word.toLowerCase();
+        // Loop through each word and count the repetitions
+        while (tokenizer.hasMoreTokens()) {
+            // Get the next word and convert it to lowercase
+            String word = tokenizer.nextToken().toLowerCase();
 
-            reps.put(lowercaseWord, reps.getOrDefault(lowercaseWord, 0) + 1);
+            // Update the count in the HashMap
+            wordRepetitionMap.put(word, wordRepetitionMap.getOrDefault(word, 0) + 1);
         }
 
-            return reps;
-        }
-        else {
-            return reps;
-        }
+        return wordRepetitionMap;
+
     }
 }
