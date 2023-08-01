@@ -9,15 +9,11 @@ public class WordRepetitionMapCreator {
 
         Map<String, Integer> wordRepetitionMap = new HashMap<>();
 
-        // Create a StringTokenizer with whitespace as the delimiter
         StringTokenizer tokenizer = new StringTokenizer(sentence, " ");
 
-        // Loop through each word and count the repetitions
         while (tokenizer.hasMoreTokens()) {
-            // Get the next word and convert it to lowercase
             String word = tokenizer.nextToken().toLowerCase();
 
-            // Update the count in the HashMap
             wordRepetitionMap.put(word, wordRepetitionMap.getOrDefault(word, 0) + 1);
         }
 
